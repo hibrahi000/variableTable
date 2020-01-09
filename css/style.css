@@ -710,17 +710,21 @@ p {
 	box-shadow: -6px 10px 27px 0px #000000;
 }
 .control-panel {
+	
 	padding: .5rem;
 }
 .control-item-section {
+	flex-wrap: wrap;
 	line-height: .5rem;
 	margin: 2rem 0;
 }
 .control-items {
+	flex-wrap: wrap;
 	margin: .7rem .5rem;
 }
 
 .item-container {
+	flex-wrap: wrap;
 	margin-top: 2rem;
 }
 

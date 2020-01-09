@@ -17,6 +17,7 @@ const fillAll = document.getElementById('fillAll');
 const restore = document.getElementById('restore');
 
 let style = '';
+let clicked = false;
 
 // ++ Row Functions
 
@@ -38,10 +39,10 @@ colAdd.addEventListener('click', (e) => {
 	}
 });
 colRemove.addEventListener('click', (e) => {
-    for(let i =0; i< table.rows.length; i++){
-        let row = table.rows[i];
-        row.deleteCell(length-1);
-    }
+	for (let i = 0; i < table.rows.length; i++) {
+		let row = table.rows[i];
+		row.deleteCell(length - 1);
+	}
 });
 
 // ::  Table Preferences Atribues
@@ -57,13 +58,33 @@ window.addEventListener('change', (e) => {
 		imgSelectContainer.classList.contains('no-show') ? null : imgSelectContainer.classList.add('no-show');
 
 		colorSelectContainer.classList.remove('no-show');
-    }
-    let cellArr = document.querySelectorAll('.cell');
+	}
+	let cellArr = document.querySelectorAll('.cell');
 	cellArr.forEach((elm) => {
-        elm.addEventListener('click',(e) => {
-        setCellStyle(getSelectValue(), elm);
-        });
-    });
+		elm.addEventListener('click', (e) => {
+			setCellStyle(getSelectValue(), elm);
+		});
+	});
+});
+
+table.addEventListener('mouseover', (e) => {
+	let cellArr = document.querySelectorAll('.cell');
+	cellArr.forEach((elm) => {
+		elm.addEventListener('mouseover', (e) => {
+			if (clicked) {
+				setCellStyle(getSelectValue(), elm);
+			} else {
+				console.log('not clicked so no go');
+			}
+		});
+	});
+});
+
+table.addEventListener('mousedown', () => {
+	clicked = true;
+});
+table.addEventListener('mouseup', () => {
+	clicked = false;
 });
 
 // ++ Select Functionality
@@ -79,9 +100,8 @@ imgSelect.addEventListener('change', (e) => {
 fillAll.addEventListener('click', (e) => {
 	let cellArr = document.querySelectorAll('.cell');
 	cellArr.forEach((elm) => {
-        setCellStyle(getSelectValue(), elm);
-    });
-    
+		setCellStyle(getSelectValue(), elm);
+	});
 });
 
 // ++ Restore Functionality
@@ -94,7 +114,7 @@ let pictures = [ 'imgSteven', 'imgLawrence', 'imgLarry' ];
 const getSelectValue = () => (checkbox.checked ? imgSelect.value : colorSelect.value);
 
 const setCellStyle = (value, cell) => {
-    resetCellColor(cell);
+	resetCellColor(cell);
 	switch (value) {
 		case '---':
 			break;
@@ -125,11 +145,10 @@ const setCellStyle = (value, cell) => {
 };
 
 const resetCellColor = (cell) => {
-    cell.classList.remove(colors);
-    cell.classList.remove('bg-sea-green');
-    cell.classList.remove(pictures);
-    cell.classList.remove(pictures);
-    
+	cell.classList.remove(colors);
+	cell.classList.remove('bg-sea-green');
+	cell.classList.remove(pictures);
+	cell.classList.remove(pictures);
 };
 
 const createCell = (cell, text) => {
@@ -138,4 +157,3 @@ const createCell = (cell, text) => {
 	setCellStyle(getSelectValue(), div);
 	cell.appendChild(div);
 };
-
