@@ -1,26 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Challenge DOM 2</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
-    <div class="control-panel-container">
-        <div class="control-panel">
-            <div class="control-item-section">
-                <div class="control-items">
-                    <label for=""></label>
-                    <button></button>
+    <nav class='crossBar bg-apple-green'>
+        <h1 class="text-maast-blue">Assignment 4: DOM Challenge 2</h1>
+    </nav>
+
+    <div class="assignment-container">
+        <div class="control-panel-container bg-independent-gray">
+            <div class="control-panel">
+                <h1 class="section-name textUL-apple-green ">Control Panel</h1>
+                <div class="control-item-section ">
+                    <div class="control-items">
+                        <h2 class="section-name text-apple-green">Row</h2>
+                        <input type="submit" value="Add" id="rowAdd" class="btn btn-sea-green txtBd-900">
+                        <input type="submit" value="Remove" id="rowRemove" class="btn btn-orange txtBd-900">
+                    </div>
                 </div>
-                <div class="control-items">
-                    <label for=""></label>
-                    <button></button>
+                <div class="control-item-section ">
+                    <div class="control-items">
+                        <h2 class="section-name text-primary">Column</h2>
+                        <input type="submit" value="Add" id="columnAdd" class="btn btn-apple-green txtBd-900">
+                        <input type="submit" value="Remove" id="columnRemove" class="btn btn-orange txtBd-900">
+                    </div>
+                </div>
+                <div class="control-item-section ">
+                    <div class="control-items">
+                        <h1 class="section-name textUL-weldon-blue ">Table Preference</h1>
+                        <div class="item-container">
+
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="picOrColor">
+                                    <span class="checkbox-custom rectangular"></span>
+                                </label>
+                                <p> <span class="text-white"> Color </span> <span class="text-apple-green">/</span>
+                                    <span class="text-primary">Images</span></p>
+                            </div>
+                        </div>
+                        <div id="colorSelectContainer" class='item-container'>
+                            <p class="text-apple-green">Select Color:</p>
+                            <select name="colorSelect" id="colorSelect" value=""
+                                class="select select-maast-blue-inverse font-12  txtBd-500 ">
+                                <option value="---">---</option>
+                                <option value="darkBlue"> Dark Blue</option>
+                                <option value="lightBlue">Light Blue</option>
+                                <option value="green">Green</option>
+                            </select>
+                        </div>
+                        <div id="imgSelectContainer" class="item-container no-show">
+                            <p class="text-apple-green">Select Picture:</p>
+                            <select name="imgSelect" id="imgSelect" class="select select-maast-blue-inverse font
+                            -12 txtBd-500">
+                                <option value="---">---</option>
+                                <option value="steven">Picture1</option>
+                                <option value="lawrence">Picture2</option>
+                                <option value="larry">Picture3</option>
+                            </select>
+                        </div>
+
+                        <form class="item-container">
+                            <input type="button" class="btn btn-independent-gray-inverse-noHover" value="Fill All" id='fillAll'>
+                            <input type="submit"  class="btn" value="Restore" id="restore">
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <div class="table-panel-container">
+            <table id='table' class="table-panel">
+                <!-- ++ Have table and row added in here but have at least one white cell visible -->
+                <tr class="row0">
+                    <td id="column0">
+                        <div class="cell"></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
+
+    <div class="crossBar bg-apple-green font-9 ">
+        <h1 class="text-independent-gray">Tech Talent Pipeline: Cohort 5 ♠2020</h1>
+    </div>
+
+    <script src="../script/script.js"></script>
 </body>
+
 </html>
